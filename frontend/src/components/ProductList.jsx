@@ -31,7 +31,7 @@ function ProductList() {
     setError(null);
     try {
       // BUG: Query param key uses capital 'C' — should be ?category=...
-      const query = category !== 'All' ? `?Category=${category}` : '';
+      const query = category !== 'All' ? `?category=${category.toLowerCase()}` : '';
       const res = await fetch(`${API_URL}/api/products${query}`);
       const data = await res.json();
 
